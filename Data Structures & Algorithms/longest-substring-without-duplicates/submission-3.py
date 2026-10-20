@@ -1,0 +1,22 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+
+        n = len(s)
+        my_dict = {}
+        left = 0 
+        right = 0 
+        maxi = 0
+
+        for right in range (0,n):
+            if s[right] in my_dict:
+                left = max(left, my_dict[s[right]]+1)
+
+            maxi = max(maxi, right - left + 1)
+            my_dict[s[right]] = right
+            right += 1
+
+        return maxi
+
+            
+
+        
